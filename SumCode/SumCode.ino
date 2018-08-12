@@ -15,8 +15,8 @@ Servo to;
 
 float calibration_factor = -295876.00;  // cell 2
 #define zero_factor - 64900              // cell 2
-#define DOUT  A3
-#define CLK   A2
+#define DOUT  A9
+#define CLK   A8
 #define DEC_POINT  3
 
 float offset = 0;

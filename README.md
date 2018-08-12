@@ -5,17 +5,17 @@
 	- MEGA 2560
 		-I2C LCD  .. ok
 		-Keypad   ... ok
-		-Motor   
-		-Load Cell  .. 
-		-Inductive Sensor ..now fix
- 		-Serial Tx,Rx
+		-Motor     ... ok
+		-Load Cell  .. no use
+		-Inductive Sensor ..ok
+ 		-Serial Tx,Rx  .. ok
 		
 	- ESP 8266
-		-Serial Tx,RX
+		-Serial Tx,RX  .. ok
 		-Firebase
 
 
 
  - Process
- 	- Inductive 
+ 	- Firbase
  
