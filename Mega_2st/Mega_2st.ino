@@ -67,7 +67,7 @@ void setup()
     digitalWrite(inBpin[i], LOW);
   }
 
-  pinMode(38, INPUT_PULLUP);
+  pinMode(38,INPUT);
   pinMode(gr_limit, OUTPUT);
   digitalWrite(gr_limit, LOW);
 
@@ -213,7 +213,7 @@ void loop()
         stopm();
         countCan++;
         break;
-      }else left();
+      }else rigth();
 
     }
   }
@@ -225,7 +225,7 @@ void loop()
         stopm();
         countbottle++;
         break;
-      }else rigth();
+      }else left();
 
     }
   }
