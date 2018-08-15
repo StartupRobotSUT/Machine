@@ -186,16 +186,15 @@ void stopm() {
 
 void loop()
 {
+ 
+  phr_sensor = digitalRead(48);//  มี  = 0 ไม่มี = 1
+  limit_sensor = digitalRead(38); // หนัก  = 1 เบา = 0 
+  can_sensor = digitalRead(42);  //ป๋อง  = 1 ขวด  = 0
+
+  
 
 
-  phr_sensor = digitalRead(48);
-  limit_sensor = digitalRead(38);
-  //can_sensor = digitalRead(42);
-
-  // Serial.println(can_sensor);
-
-
-  if (limit_sensor == 1) {
+  if (limit_sensor == 1) {  // หนักเกิ้น 
     while (1) {
       limit_sensor = digitalRead(38);
       if (limit_sensor == 0 ) {
@@ -206,7 +205,32 @@ void loop()
 
   }
 
+  if(phr_sensor == 0 && can_sensor == 1 ){
+    while(1){
+      can_sensor = digitalRead(42);  //ป๋อง  = 1 ขวด  = 0
+      phr_sensor = digitalRead(48);//  มี  = 0 ไม่มี = 1
+      if(phr_sensor == 1){
+        stopm();
+        countCan++;
+        break;
+      }else left();
 
+    }
+  }
+    if(phr_sensor == 0 && can_sensor == 0 ){
+    while(1){
+      can_sensor = digitalRead(42);  //ป๋อง  = 1 ขวด  = 0
+      phr_sensor = digitalRead(48);//  มี  = 0 ไม่มี = 1
+      if(phr_sensor == 1){
+        stopm();
+        countbottle++;
+        break;
+      }else rigth();
+
+    }
+  }
+
+/*
   if (phr_sensor == 0) {
     while (1) {
       phr_sensor = digitalRead(48);
@@ -218,7 +242,7 @@ void loop()
       else     rigth();
     }
   }
-
+  */
 
 
   char key = keypad.getKey();
